@@ -1,23 +1,24 @@
 GET http://localhost:3001/dishes
 ###
-GET http://localhost:3001/dishes/6aac7271c4e442b5db1967b2
+GET http://localhost:3001/dishes/6aac7271c4e442b5db1967b0
 ###
-PUT http://localhost:3001/dishes/6aac7271c4e442b5db1967b2
+PUT http://localhost:3001/dishes/6aac7271c4e442b5db1967b0
 Content-Type: application/json
 
   {
-    "name": "Temaki",
+    "_id": "6aac7271c4e442b5db1967b0",
+    "name": "Sushi",
     "ingredients": [
       "Japanese Rice",
       "Salmon",
-      "Cream Cheese",
       "Nori Seaweed"
     ],
-    "price": 22.9,
+    "price": 24.9,
     "available_sizes": [
-      "120g",
-      "180g",
-      "250g"
+      "8 pieces",
+      "16 pieces",
+      "24 pieces",
+      "30 pieces"
     ]
   }
 
@@ -42,5 +43,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3001/dishes/6aada293c908091ba4f00ca8
+DELETE http://localhost:3001/dishes/6aadb1f0634943afcef281be
 ###
