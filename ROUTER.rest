@@ -1,0 +1,46 @@
+GET http://localhost:3001/dishes
+###
+GET http://localhost:3001/dishes/6aac7271c4e442b5db1967b2
+###
+PUT http://localhost:3001/dishes/6aac7271c4e442b5db1967b2
+Content-Type: application/json
+
+  {
+    "name": "Temaki",
+    "ingredients": [
+      "Japanese Rice",
+      "Salmon",
+      "Cream Cheese",
+      "Nori Seaweed"
+    ],
+    "price": 22.9,
+    "available_sizes": [
+      "120g",
+      "180g",
+      "250g"
+    ]
+  }
+
+###
+POST http://localhost:3001/dishes
+Content-Type: application/json
+
+{
+    "name": "Mabudofu",
+    "ingredients": [
+        "tofu", 
+        "groudbeef", 
+        "spice", 
+        "oil"
+    ],
+    "price": 19.90,
+    "available_sizes": [
+        "150g", 
+        "300g", 
+        "450g"
+    ]
+}
+
+###
+DELETE http://localhost:3001/dishes/6aada293c908091ba4f00ca8
+###
