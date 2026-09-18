@@ -1,10 +1,15 @@
 const express = require("express");
 const app = express();
-const startMongodb = require('./config/db.config');
+const { startMongodb } = require('./config/db.config');
+const router = require('./router/router.js');
 
 app.use(express.json())
 
 startMongodb();
+
+app.use(express.static(__dirname));
+
+app.use('/', router);
 
 const PORT = process.env.PORT || 3001;
 
