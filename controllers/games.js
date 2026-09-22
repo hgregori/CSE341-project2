@@ -1,9 +1,9 @@
 const { getDb } = require('../config/db.config');
 const objectId = require('mongodb').ObjectId;
 
-const getAllDishes = async (req, res) => {
+const getAllGames = async (req, res) => {
     try {
-        const dishes = await getDb().collection('nihonryouri').find({}).toArray();
+        const dishes = await getDb().collection('soulslike').find({}).toArray();
 
         res.status(200).json(dishes);
     } catch (err) {
@@ -12,10 +12,10 @@ const getAllDishes = async (req, res) => {
     }
 };
 
-const getSingleDish = async (req,res) => {    
+const getSingleGame = async (req,res) => {    
     try {
         const disheId = new objectId(req.params.id);
-        const dishes = await getDb().collection('nihonryouri').find({ _id: disheId }).toArray();
+        const dishes = await getDb().collection('soulslike').find({ _id: disheId }).toArray();
 
         res.status(200).json(dishes);
     } catch (err) {
@@ -24,15 +24,15 @@ const getSingleDish = async (req,res) => {
     }
 };
 
-const createDishe = async (req, res) => {
+const createGame = async (req, res) => {
     try {
         const disheCreate = { 
-            "name": req.body.name,
-            "ingredients": req.body.ingredients,
-            "price": req.body.price,
-            "available_sizes": req.body.available_sizes
+            "title": req.body.title,
+            "studio": req.body.studio,
+            "releaseDate": req.body.releaseDate,
+            "price": req.body.price
         }
-        const response = await getDb().collection('nihonryouri').insertOne(disheCreate);
+        const response = await getDb().collection('soulslike').insertOne(disheCreate);
         if (response.acknowledged) {
             res.status(201).json(response);
         } else {
@@ -44,16 +44,16 @@ const createDishe = async (req, res) => {
     }
 };
 
-const updateDishe = async (req, res) => {
+const updateGame = async (req, res) => {
     try {
         const disheId = new objectId(req.params.id);
         const disheUpdate = { 
-            "name": req.body.name,
-            "ingredients": req.body.ingredients,
-            "price": req.body.price,
-            "available_sizes": req.body.available_sizes
+            "title": req.body.title,
+            "studio": req.body.studio,
+            "releaseDate": req.body.releaseDate,
+            "price": req.body.price
         }
-        const response = await getDb().collection('nihonryouri').updateOne({_id: disheId}, { $set: disheUpdate});
+        const response = await getDb().collection('soulslike').updateOne({_id: disheId}, { $set: disheUpdate});
         if (response.modifiedCount > 0) {
             res.status(204).send();
         } else {
@@ -65,10 +65,10 @@ const updateDishe = async (req, res) => {
     }
 };
 
-const deleteDishe = async (req, res) => {
+const deleteGame = async (req, res) => {
     try {
         const disheId = new objectId(req.params.id);
-        const response = await getDb().collection('nihonryouri').deleteOne({_id: disheId});
+        const response = await getDb().collection('soulslike').deleteOne({_id: disheId});
         if (response.deletedCount > 0) {
             res.status(204).send();
         } else {
@@ -82,9 +82,9 @@ const deleteDishe = async (req, res) => {
 
 
 module.exports = {
-    getAllDishes,
-    getSingleDish,
-    createDishe,
-    updateDishe,
-    deleteDishe
+    getAllGames,
+    getSingleGame, 
+    createGame,
+    updateGame,
+    deleteGame
 };

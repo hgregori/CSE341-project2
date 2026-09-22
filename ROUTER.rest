@@ -18,7 +18,7 @@ Content-Type: application/json
       "8 pieces",
       "16 pieces",
       "24 pieces",
-      "30 pieces"
+      "32 pieces"
     ]
   }
 
@@ -43,5 +43,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3001/dishes/6aadb1f0634943afcef281be
+DELETE http://localhost:3001/dishes/6aadb480ba360ccc08d966c2
 ###
