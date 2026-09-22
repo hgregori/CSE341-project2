@@ -1,8 +1,8 @@
 GET http://localhost:3001/dishes
 ###
-GET http://localhost:3001/dishes/6aac7271c4e442b5db1967b0
+GET http://localhost:3001/dishes/6ab2cd6a3f7c407a755a1c7b
 ###
-PUT http://localhost:3001/dishes/6aac7271c4e442b5db1967b0
+PUT http://localhost:3001/dishes/6ab2cd6a3f7c407a755a1c7b
 Content-Type: application/json
 
   {
@@ -18,7 +18,7 @@ Content-Type: application/json
       "8 pieces",
       "16 pieces",
       "24 pieces",
-      "32 pieces"
+      "30 pieces"
     ]
   }
 
@@ -43,5 +43,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3001/dishes/6aadb480ba360ccc08d966c2
+DELETE http://localhost:3001/dishes/6ab2cd6a3f7c407a755a1c7b
 ###
